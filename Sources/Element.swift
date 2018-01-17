@@ -233,6 +233,16 @@ open class AEXMLElement {
         parent?.removeChild(self)
     }
     
+    /**
+        Moves a child from original index to a new index
+ 
+        - parameter oldIndex: Index of child to move
+        - parameter newIndex: Index to move child to
+    */
+    open func moveChild(atIndex oldIndex: Int, toIndex newIndex: Int) {
+        self.children.insert(self.children.remove(at: oldIndex), at: newIndex)
+    }
+    
     fileprivate func removeChild(_ child: AEXMLElement) {
         if let childIndex = children.index(where: { $0 === child }) {
             children.remove(at: childIndex)
